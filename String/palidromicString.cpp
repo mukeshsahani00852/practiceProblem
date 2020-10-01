@@ -1,7 +1,11 @@
 #include <iostream>
 #include <cstdlib>  
 
-using namespace std; 
+using namespace std;
+
+/**
+ * @name : isPalidromicString. 
+*/
 
 bool isPalidromicString(string data) {
     int i = 0, j = data.length() - 1;
