@@ -17,21 +17,20 @@ int Decode(string str)
 
 string Encode(int value) 
 {
-    string result;
+    string result; 
     int temp = 0;
-    char p = 0; 
-    while (value)
+    while (value > 0)
     {
-        temp = value % 26; 
+        temp = value % 26;
+        value = value / 26;
         if(temp == 0) 
         {
-            temp = 26; 
+            temp = 26;
+            value--; 
         }
-
-        p = temp + 'A'; 
-        result += p;
-        // temp = temp / 26;
-        value /= 26; 
+        result += temp + 'A' - 1;
+        
+        // --value;
     }
 
     return {result.rbegin(), result.rend()}; 
