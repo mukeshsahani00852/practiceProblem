@@ -24,18 +24,33 @@ Node<T> *overLappingNode(SinglyLinkedList<int> list1, SinglyLinkedList<int> list
     return current1;
 }
 
-template <typename T> 
-void AdvancePointer(int advanceCount, Node<T> **pointer)
-{
-    while(advanceCount--)
-    {
-        *pointer = (*pointer)->getNext(); 
-    }
-}
 
 
 int main(int argc, char* argv[])
 {
+    srand(time(0));
+    SinglyLinkedList<int> list1, list2;
+    for (int i = 0; i < 20; i++)
+    {
+        list1.push_back(random() % 100); 
+    }
+    for (int i = 0; i < 11; i++)
+    {
+        list2.push_back(random() % 100); 
+    }
+
+    Node<int> *temp = list2.getHead(), *temp2 = list1.getHead(); 
+    while(temp->getNext() != NULL){
+        temp = temp->getNext();
+        temp2 = temp2->getNext(); 
+    }
+    temp->setNext(temp2);
+
+    Node<int> *node = overLappingNode<int>(list1, list2);
+    cout << node << " " << node->getData() << endl;
+
+    list1.print();
+    list2.print(); 
 
     return 0;
 }

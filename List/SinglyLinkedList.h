@@ -211,7 +211,7 @@ bool SinglyLinkedList<T>::print() const
         cout << temp->getData() << ", ";
         temp = temp->getNext(); 
     }
-    cout << endl;
+    cout << endl << endl;
     return true; 
 }
 
