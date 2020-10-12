@@ -93,7 +93,9 @@ class SinglyLinkedList
         bool isEmpty() const; 
         bool print() const;
         bool _print() const; // for testing purpose. 
-        Node<T>* getHead() const;  
+        Node<T>* getHead() const;
+        bool setHead(Node<T> *newHead); 
+
     private:
         Node<T> *head; 
 };
@@ -236,6 +238,13 @@ template <typename T>
 Node<T> *SinglyLinkedList<T>::getHead() const 
 {
     return this->head; 
+}
+
+template <typename T> 
+bool SinglyLinkedList<T>::setHead(Node<T> *newHead) 
+{
+    this->head = newHead;
+    return true; 
 }
 
 #endif 

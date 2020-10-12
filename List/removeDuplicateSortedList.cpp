@@ -4,7 +4,7 @@ template <typename T>
 void removeDuplicateFromSortedList(SinglyLinkedList<T> &list)
 {
     Node<T> *node = list.getHead(); 
-    while(node->next != NULL)
+    while(node->getNext() != NULL)
     {
         if(node->getData() == node->getNext()->getData())
         {
