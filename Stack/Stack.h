@@ -1,5 +1,10 @@
 #ifndef STACK_H 
 #define STACK_H 
+#include <iostream>
+#include <cstdlib> 
+#include <stdexcept> 
+
+using namespace std; 
 
 template <typename T> 
 class Node 
@@ -62,7 +67,7 @@ class Stack
         Stack();
         bool push(T element);
         T pop();
-        int length(); 
+        int length() const; 
 
     private:
         int size = 0;
@@ -72,7 +77,45 @@ class Stack
 template <typename T> 
 Stack<T>::Stack()
 {
-    
+    this->top = NULL; 
+}
+
+template <typename T> 
+bool Stack<T>::push(T element)
+{
+    if(this->top == NULL)
+    {
+        this->top = new Node(element); 
+    } 
+    else {
+        Node<T> *node = new Node(element);
+        node->next = this->top;
+        this->top = node; 
+    }
+    ++size;
+    return true;
+}
+
+template <typename T> 
+T Stack<T>::pop()
+{
+    if(this->top == NULL)
+    {
+        throw underflow_error("Stack underflow."); 
+    } 
+    else {
+        T element = this->top->getData;
+        Node<T> *temp = this->top;
+        this->top = this->top->getNext();
+        delete temp;
+        return element; 
+    }
+}
+
+template <typename T> 
+int Stack<T>::length() const 
+{
+    return this->size; 
 }
 
 #endif 
