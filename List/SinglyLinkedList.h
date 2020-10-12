@@ -124,6 +124,7 @@ bool SinglyLinkedList<T>::push_back(T data)
     return true; 
 }
 
+
 template <typename T> 
 bool SinglyLinkedList<T>::DeleteNode(T data) 
 {
