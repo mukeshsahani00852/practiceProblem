@@ -10,6 +10,7 @@ SinglyLinkedList<T> reverseList(SinglyLinkedList<T> &list)
         if (tempHead == NULL)
         {
             tempHead = head;
+            tempHead->setNext(NULL);
         }
         else
         {
@@ -25,7 +26,7 @@ SinglyLinkedList<T> reverseList(SinglyLinkedList<T> &list)
 
 int main(int argc, char* argv[])
 {
-    SinglyLinkedList<int> list;
+    SinglyLinkedList<int> list, list11;
     for (int i = 0; i < 10; i++)
         list.push_back(i);
     list.print();
