@@ -68,6 +68,7 @@ class Stack
         bool push(T element);
         T pop();
         int length() const; 
+        T _top() const;
 
     private:
         int size = 0;
@@ -85,11 +86,11 @@ bool Stack<T>::push(T element)
 {
     if(this->top == NULL)
     {
-        this->top = new Node(element); 
+        this->top = new Node<T>(element); 
     } 
     else {
-        Node<T> *node = new Node(element);
-        node->next = this->top;
+        Node<T> *node = new Node<T>(element);
+        node->setNext(this->top);
         this->top = node; 
     }
     ++size;
@@ -104,7 +105,7 @@ T Stack<T>::pop()
         throw underflow_error("Stack underflow."); 
     } 
     else {
-        T element = this->top->getData;
+        T element = this->top->getData();
         Node<T> *temp = this->top;
         this->top = this->top->getNext();
         delete temp;
@@ -113,9 +114,24 @@ T Stack<T>::pop()
 }
 
 template <typename T> 
+T Stack<T>::_top() const 
+{
+    if(this->top == NULL)
+    {
+        throw underflow_error("Stack is Empty"); 
+    } 
+    else 
+    {
+        return this->top->getData(); 
+    }
+}
+
+
+template <typename T> 
 int Stack<T>::length() const 
 {
     return this->size; 
 }
+
 
 #endif 

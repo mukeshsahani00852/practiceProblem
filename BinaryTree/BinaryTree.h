@@ -99,9 +99,62 @@ BinaryTree<T>::BinaryTree()
 }
 
 template <typname T> 
+bool BinaryTree<T>::insertKey(T key)
+{
+    if(this->root == NULL)
+    {
+        this->root = new Node<T>(key); 
+    }
+    else 
+    {
+        Queue<BinaryTreeNode*> queue;
+        queue.enQueue(this->root); 
+        BinaryTReeNode* temp = NULL; 
+        while(!queue.isEmpty())
+        {
+            temp = queue.deQueue(); 
+            if(temp->left != NULL)
+            {
+                temp.enQueue(temp->left); 
+            }
+            else 
+            {
+                temp->left = new BinaryTreeNode<T>(key); 
+                break; 
+            }
+            if(temp->right != NULL)
+            {
+                temp.enQueue(temp->right); 
+            }
+            else 
+            {
+                temp->right = new BinaryTreeNode<T>(key);
+                break;
+            }
+        }
+    }
+
+    return true; 
+}
 
 
-
+template <typename T> 
+bool BinaryTree<T>::levelOrderTraversal() const 
+{
+    if(this->root == NULL)
+    {
+        cout << "THIS IS A NULL TREE" << endl; 
+    }
+    else 
+    {
+        Queue<BinaryTreeNode*> queue; 
+        BintaryTreeNode *root = NULL; 
+        while(!queue.isEmpty())
+        {
+            
+        }
+    }
+}
 
 
 #endif 
