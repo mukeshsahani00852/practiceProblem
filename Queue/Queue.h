@@ -69,6 +69,7 @@ class Queue
         T deQueue();
         bool enQueue(T data);
         bool isEmpty() const; 
+        
 
     private:
         Node<T> *head;
@@ -92,8 +93,8 @@ bool Queue<T>::enQueue(T data)
     } 
     else 
     {
-        this->tail->next = new Node<T>(data); 
-        this->tail = this->tail->next;  
+        this->tail->setNext(new Node<T>(data)); 
+        this->tail = this->tail->getNext();  
     }
     return true; 
 }

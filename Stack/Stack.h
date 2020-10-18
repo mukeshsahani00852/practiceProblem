@@ -69,6 +69,8 @@ class Stack
         T pop();
         int length() const; 
         T _top() const;
+        void _empty();
+        bool isEmpty() const; 
 
     private:
         int size = 0;
@@ -133,5 +135,25 @@ int Stack<T>::length() const
     return this->size; 
 }
 
+template <typename T> 
+void Stack<T>::_empty()
+{
+    Node<T> *temp = this->head;
+    Node<T> *previous = this->head; 
+    while(temp != NULL)
+    {
+        previous = temp;
+        temp = temp->getNext(); 
+        delete temp;
+    }
+
+    this->head = NULL; 
+}
+
+template <typename T> 
+bool Stack<T>::isEmpty() const
+{
+    return this->top == NULL; 
+}
 
 #endif 

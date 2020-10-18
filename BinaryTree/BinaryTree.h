@@ -80,7 +80,66 @@ bool BinaryTreeNode<T>::setRight(BinaryTreeNode<T> *node)
 }
 
 
+template <typename T> 
+class BinaryTree 
+{
+    public:
+        BinaryTree();
+        bool insertKey(T key);
+        BinaryTreeNode<T> *getRoot() const; 
 
+    private:
+        BinaryTreeNode<T> *root; 
+}; 
 
+template <typename T> 
+BinaryTree<T>::BinaryTree()
+{
+    this->root = NULL; 
+}
+
+template <typename T> 
+bool BinaryTree<T>::insertKey(T key)
+{
+    if(this->root == NULL) 
+    {
+        this->root = new BinaryTreeNode<T>(key);
+    }
+    else 
+    {
+        Queue<BinaryTreeNode<T>*> queue;
+        queue.enQueue(this->root); 
+        BinaryTreeNode<T> *temp = NULL; 
+        while(!queue.isEmpty())
+        {
+            temp = queue.deQueue(); 
+            if(temp->getLeft() == NULL)
+            {
+                temp->setLeft(new BinaryTreeNode<T>(key));
+                break; 
+            }
+            else 
+            {
+                queue.enQueue(temp->getLeft()); 
+            }
+            if(temp->getRight()  == NULL)
+            {
+                temp->setRight(new BinaryTreeNode<T>(key));
+                break; 
+            }
+            else 
+            {
+                queue.enQueue(temp->getRight()); 
+            }
+        }
+    }
+    return true; 
+}
+
+template <typename T> 
+BinaryTreeNode<T> *BinaryTree<T>::getRoot() const 
+{
+    return this->root; 
+}
 
 #endif 
