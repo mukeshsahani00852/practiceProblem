@@ -1,5 +1,12 @@
 #include "SinglyLinkedList.h"
 
+/**
+ * 
+ * @name : evenOddMerge. 
+ * 
+*/
+
+
 template <typename T> 
 SinglyLinkedList<T> evenOddMerge(SinglyLinkedList<T> list)
 {

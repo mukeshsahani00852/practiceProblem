@@ -15,7 +15,6 @@ void RightShiftBy_k(SinglyLinkedList<T> &list, int k)
     }
     k %= len;
     int tailShift = len - k + 1;
-    // tail->next = list.getHead();
     tail->setNext(list.getHead()); 
     Node<T> *newTail = tail, *newHead = NULL;
     while (tailShift--)
