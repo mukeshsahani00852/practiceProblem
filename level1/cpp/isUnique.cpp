@@ -1,8 +1,9 @@
-#include <iostream>
+#include <iostream> 
 #include <cstdlib> 
 #include <string> 
+#include <vector> 
 
-using namespace std;  
+using namespace std; 
 
 bool isUnique(string str) {
     int *content = (int *)calloc(128, sizeof(int));
