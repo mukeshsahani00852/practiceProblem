@@ -3,7 +3,6 @@
 # HashSet. 
 
 class Set: 
-
     def __init__(self): 
         self.set_list = [] # list of storing data in list. 
 
