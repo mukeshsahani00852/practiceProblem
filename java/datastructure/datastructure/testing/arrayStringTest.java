@@ -8,14 +8,12 @@ public class arrayStringTest {
         
 
         Scanner sc = new Scanner(System.in); 
-
-        String str1 = sc.next(), str2 = sc.next();
-        
-        if(ArrayStringProblem.isPermutation_version1(str1, str2)) {
-            System.out.println(str1 + " " + str2 + " are permutation of each other"); 
-        } else {
-            System.out.println(str1 + " " + str2 + " are not permutation of each other"); 
-        }
+        char[] data = new char[20]; 
+        data = "java is good                                ".toCharArray(); 
+        int true_length = "java is good".length(); 
+        System.out.println(data); 
+        ArrayStringProblem.replace_space(data, true_length);
+        System.out.println(data); 
 
         sc.close(); // close scanner. 
 

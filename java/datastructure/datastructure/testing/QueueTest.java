@@ -1,7 +1,7 @@
 package datastructure.testing;
 
 import datastructure.Queue.Queue; 
-import java.util.Scanner; 
+
 
 public class QueueTest<T> {
     public static void main(String[] args) {

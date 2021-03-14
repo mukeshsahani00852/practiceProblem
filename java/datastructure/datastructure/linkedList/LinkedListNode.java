@@ -1,7 +1,5 @@
 package datastructure.linkedList;
 
-import java.util.LinkedList;
-
 /***
  * @class : LinkedListNode.java 
  * SinglyLinkedListNode
