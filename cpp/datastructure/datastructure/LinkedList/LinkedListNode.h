@@ -12,9 +12,7 @@ class SinglyLinkedListNode {
         SinglyLinkedListNode(T element); 
         void setData(T element); 
         T getData() const; 
-        SinglyLinkedListNode<T>* getNext() const {
-            return this->next; 
-        }
+        SinglyLinkedListNode<T>* getNext() const;
         void setNext(SinglyLinkedListNode<T> *next_node); 
 
     private: 
@@ -26,13 +24,13 @@ class SinglyLinkedListNode {
 
 template <typename T> 
 SinglyLinkedListNode<T>::SinglyLinkedListNode() {
-    this.next = NULL; 
+    this->next = NULL; 
 }
 
 template <typename T> 
 SinglyLinkedListNode<T>::SinglyLinkedListNode(T element) {
     this->data = element; 
-    this.next = NULL; 
+    this->next = NULL; 
 }
 
 template <typename T> 

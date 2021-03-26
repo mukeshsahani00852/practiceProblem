@@ -15,7 +15,7 @@ class SinglyLinkedList {
         void printList() const; // print list. 
 
     private: 
-        SinglyLinkedList<T> *head; 
+        SinglyLinkedListNode<T> *head; 
 
 }; 
 
@@ -30,11 +30,68 @@ void SinglyLinkedList<T>::add(T data) {
         this->head = new SinglyLinkedListNode<T>(data); // if linked list is empty init HEAD of linked list. 
     } else {
         SinglyLinkedListNode<T> *current = this->head; 
-        while(currnet->getNext() != NULL) {
-            current = currnet->getNext(); 
+        while(current->getNext() != NULL) {
+            current = current->getNext(); 
         }
         current->setNext(new SinglyLinkedListNode<T>(data)); // add new node in linked list. 
     }
 }
+
+template <typename T> 
+void SinglyLinkedList<T>::remove(T data) {
+    if(this->head != NULL) {
+        SinglyLinkedListNode<T> *current = this->head, *previous = this->head; 
+        while(current != NULL && current->getData() != data) {
+            previous = current; 
+            current = current->getNext(); 
+        }
+        if(current != NULL) {
+            if(current == this->head) {
+                this->head = this->head->getNext(); 
+                delete current; 
+            } else {
+                previous->setNext(current->getNext()); 
+                delete current; 
+            }
+        }
+    }
+}
+
+template <typename T> 
+bool SinglyLinkedList<T>::search(T data) const {
+    if(this->head == NULL) 
+        return false; // linked list is empty. 
+    else {
+        SinglyLinkedListNode<T> *current_node = this->head; 
+        while(current_node != NULL) {
+            if(current_node->getData() == data) {
+                return true;
+            } 
+            current_node = current_node->getNext(); 
+        }
+        return false; 
+    }
+    
+}
+
+template <typename T> 
+void SinglyLinkedList<T>::printList() const {
+    SinglyLinkedListNode<T> *current = this->head; 
+    while(current != NULL) {
+        cout << current->getData() << ", "; 
+        current = current->getNext(); 
+    }
+}
+
+template <typename T> 
+SinglyLinkedList<T>::~SinglyLinkedList() {
+    SinglyLinkedListNode<T> *current = this->head, temp = NULL; 
+    while(current != NULL) {
+        temp = current; 
+        current = current->getNext(); 
+        delete temp; 
+    }
+}
+
 
 #endif 
