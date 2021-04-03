@@ -3,6 +3,8 @@
 
 #include <iostream> 
 #include <cstdlib> 
+#include "../LinkedList/LinkedList.h"
+
 
 using namespace std; 
 
@@ -65,6 +67,17 @@ GraphAdjMatrix::~GraphAdjMatrix() {
 /**
  * class : GraphAdjList
 */
+
+class GraphAdjList {
+    public: 
+        GraphAdjList(int number_of_edges, int number_of_vertex); 
+        ~GraphAdjList(); 
+        void printGraph() const; // print Graph.
+    private: 
+        SinglyLinkedList<int> *adj_list; 
+}; 
+
+
 
 
 
