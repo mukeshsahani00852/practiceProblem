@@ -3,6 +3,7 @@
 
 #include <iostream> 
 #include <cstdlib> 
+
 using namespace std; 
 
 template <typename T> 
@@ -65,6 +66,8 @@ class DoublyLinkedListNode : public SinglyLinkedListNode<T> {
     public: 
         DoublyLinkedListNode(); 
         DoublyLinkedListNode(T element); 
+        DoublyLinkedListNode<T> *getPrevious(); 
+        void setPrevious(DoublyLinkedListNode<T> *new_previous_node); 
     private: 
         DoublyLinkedListNode<T> *previous; 
 }; 
@@ -84,6 +87,15 @@ DoublyLinkedListNode<T>::DoublyLinkedListNode(T element) {
 
 
 template <typename T> 
+DoublyLinkedListNode<T> *DoublyLinkedListNode<T>::getPrevious() {
+    return this->previous; 
+}
+
+template <typename T> 
+void DoublyLinkedListNode<T>::setPrevious(DoublyLinkedListNode<T> *new_previous_node) {
+    this->previous = new_previous_node; 
+}
+
 
 
 

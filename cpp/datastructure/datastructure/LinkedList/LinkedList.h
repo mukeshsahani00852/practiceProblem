@@ -13,7 +13,8 @@ class SinglyLinkedList {
         void remove(T data); // remove an element. 
         bool search(T data) const; // search for an element. 
         void printList() const; // print list. 
-
+        SinglyLinkedListNode<T> *getHead() const; 
+        void setHead(SinglyLinkedListNode<T> *new_head); 
     private: 
         SinglyLinkedListNode<T> *head; 
 
@@ -35,6 +36,16 @@ void SinglyLinkedList<T>::add(T data) {
         }
         current->setNext(new SinglyLinkedListNode<T>(data)); // add new node in linked list. 
     }
+}
+
+template <typename T> 
+SinglyLinkedListNode<T>* SinglyLinkedList<T>::getHead() const {
+    return this->head; 
+}
+
+template <typename T> 
+void SinglyLinkedList<T>::setHead(SinglyLinkedListNode<T> *new_head) {
+    this->head = new_head; 
 }
 
 template <typename T> 
@@ -76,22 +87,25 @@ bool SinglyLinkedList<T>::search(T data) const {
 
 template <typename T> 
 void SinglyLinkedList<T>::printList() const {
+    cout << endl; 
     SinglyLinkedListNode<T> *current = this->head; 
     while(current != NULL) {
         cout << current->getData() << ", "; 
         current = current->getNext(); 
     }
+    cout << endl; 
 }
 
 template <typename T> 
 SinglyLinkedList<T>::~SinglyLinkedList() {
-    SinglyLinkedListNode<T> *current = this->head, temp = NULL; 
+    SinglyLinkedListNode<T> *current = this->head, *temp = NULL; 
     while(current != NULL) {
         temp = current; 
         current = current->getNext(); 
         delete temp; 
     }
 }
+
 
 
 #endif 
