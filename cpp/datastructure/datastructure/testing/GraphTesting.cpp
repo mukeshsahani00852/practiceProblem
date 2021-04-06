@@ -2,7 +2,7 @@
 
 int main(int argc, char* argv[]) {
 
-    GraphAdjList *graph  = new GraphAdjList(5, 4);
+    GraphAdjList *graph  = new GraphAdjList(5, 4, false);
     graph->printGraph(); // print Graph Adjency List.  
 
 

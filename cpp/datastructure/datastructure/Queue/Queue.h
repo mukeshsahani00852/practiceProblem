@@ -5,6 +5,7 @@
 #include <cstdlib> 
 #include <stdexcept> 
 #include "../LinkedList/LinkedList.h"
+#include "../LinkedList/LinkedListNode.h"
 using namespace std; 
 
 
@@ -32,7 +33,11 @@ void Queue<T>::enQueue(T data) {
 
 template <typename T> 
 T Queue<T>::deQueue() {
-    
+    SinglyLinkedListNode<T> *node = this->queue->getHead(); // get Head. 
+    this->queue->setHead(this->queue->getHead()->getNext()); 
+    T data = node->getData(); 
+    delete node; 
+    return data; 
 }
 
 #endif 
