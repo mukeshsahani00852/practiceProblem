@@ -74,8 +74,27 @@ class GraphAdjList {
         ~GraphAdjList(); 
         void printGraph() const; // print Graph.
     private: 
+        int number_of_edges; 
+        int number_of_vertex;
         SinglyLinkedList<int> *adj_list; 
 }; 
+
+
+GraphAdjList::GraphAdjList(int number_of_edges, int numbef_of_vertex) {
+    this->number_of_edges = number_of_edges; 
+    this->number_of_vertex = numbef_of_vertex; 
+    this->adj_list = new SinglyLinkedList<int>[this->number_of_vertex];
+    for(int i = 0; i < this->number_of_vertex; i++) {
+        this->adj_list[i].add(i); 
+    }
+}
+
+void GraphAdjList::printGraph() const {
+    for(int i = 0; i < this->number_of_vertex; i++) {
+        this->adj_list[i].printList(); // print list. 
+    }    
+}
+
 
 
 
