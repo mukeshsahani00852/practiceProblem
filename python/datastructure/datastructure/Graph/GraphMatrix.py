@@ -13,9 +13,9 @@ class GraphMatrix:
         for edges in range(0, self.number_of_edges): 
             point_string = input()
             point_list = point_string.split(" ")
-            self.matrix[point_list[0] - 1][point_list[1] - 1] = 1 
+            self.matrix[int(point_list[0]) - 1][int(point_list[1]) - 1] = 1 
             if not self.isDirected: 
-                self.matrix[point_list[1] - 1][point_list[0] - 1] = 1 
+                self.matrix[int(point_list[1]) - 1][int(point_list[0]) - 1] = 1 
 
     def show(self): 
         print(self.matrix)
