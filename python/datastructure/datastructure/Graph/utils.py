@@ -16,7 +16,7 @@ class Queue:
         if self.isEmpty(): 
             raise QueueUnderFlow 
         else: 
-            return self.pop(0) # delete first element and return it. 
+            return self.queue.pop(0) # delete first element and return it. 
 
     def isEmpty(self): 
         return self.queue == []
