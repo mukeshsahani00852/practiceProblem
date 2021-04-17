@@ -16,6 +16,7 @@ class Queue {
         ~Queue(); 
         void enQueue(T data); 
         T deQueue(); 
+        bool isEmpty() const; 
 
     private: 
         SinglyLinkedList<T> *queue; 
@@ -38,6 +39,11 @@ T Queue<T>::deQueue() {
     T data = node->getData(); 
     delete node; 
     return data; 
+}
+
+template <typename T> 
+bool Queue<T>::isEmpty() const {
+    return this->queue->getHead() == NULL; // if no element in linkedlist return Queue is empty. 
 }
 
 #endif 
