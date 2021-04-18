@@ -8,7 +8,10 @@ void BFS(GraphAdjMatrix *graph) {
     Queue<int> *queue = new Queue<int>(); // queue for storing vertex. 
     queue->enQueue(0); 
 
-    while(!(queue.is))
+    while(!(queue->isEmpty())) {
+
+        // pass-> <-pass . 
+    }
 
 }
 
