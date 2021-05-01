@@ -3,9 +3,9 @@ package datastructure.Graphs;
 import java.util.Scanner; 
 
 public class Graph {
-    private int[][] ajdencyMatrix; 
-    private int number_of_vertex; 
-    private int number_of_edges; 
+    public int[][] ajdencyMatrix; 
+    public int number_of_vertex; 
+    public int number_of_edges; 
     private boolean isDirected; 
     public Graph() {
         this.ajdencyMatrix = new int[10][10]; 

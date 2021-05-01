@@ -48,6 +48,8 @@ def dfs_Graph(graph, source, discoved):
 def DFS(graph): 
     print(1)
     return dfs_Graph(graph, 0, [0]) 
+
+    
     
     
 
