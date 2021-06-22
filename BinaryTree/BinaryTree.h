@@ -6,6 +6,8 @@
 
 using namespace std; 
 
+template <typename T> 
+class BinaryTree; 
 
 
 template <typename T> 
@@ -25,6 +27,7 @@ class BinaryTreeNode
         BinaryTreeNode<T> *left; 
         BinaryTreeNode<T> *right; 
 
+friend class BinaryTree<T>; 
 }; 
 
 template <typename T> 
@@ -89,8 +92,10 @@ class BinaryTree
         bool insertKey(T key);
         BinaryTreeNode<T> *getRoot() const; 
         void levelOrderTraversal() const; 
+        int height() const; 
 
-    private:
+    protected:
+        int height(BinaryTreeNode<T> *node) const; 
         BinaryTreeNode<T> *root; 
 }; 
 
@@ -164,6 +169,28 @@ void BinaryTree<T>::levelOrderTraversal() const
         }
     }
     cout << endl; 
+}
+
+
+template <typename T> 
+int BinaryTree<T>::height() const {
+    if(this->root == NULL) {
+        return -1; 
+    } else {
+        return this->height(this->root); 
+    }
+}
+
+
+template <typename T>
+int BinaryTree<T>::height(BinaryTreeNode<T> *node) const {
+    if(node == NULL) {
+        return -1; 
+    } else {
+        int left_tree_height = this->height(node->getLeft()); 
+        int right_tree_height = this->height(node->getRight()); 
+        return 1 +  max(left_tree_height, right_tree_height); 
+    }
 }
 
 #endif 
