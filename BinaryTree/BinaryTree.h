@@ -20,7 +20,6 @@ class BinaryTreeNode
         bool setData(T data);
         bool setLeft(BinaryTreeNode<T> *node);
         bool setRight(BinaryTreeNode<T> *node); 
-
     private:
         T data; 
         BinaryTreeNode<T> *left; 
