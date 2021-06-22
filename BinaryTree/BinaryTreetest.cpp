@@ -18,11 +18,11 @@ int main(int argc, char* argv[])
     int seed_random = static_cast<int>(time(0)); 
     srand(seed_random); 
 
-    BinaryTree<int> tree; // binary tree
-    for (int i = 0; i < 10; i++)
-    {
-        tree.insertKey(i); 
-    }
+    BinarySearchTree<int> tree; // binary tree
+
+    /
+
+
     tree.levelOrderTraversal(); 
     cout << tree.height() << endl; 
     return 0; 
