@@ -10,6 +10,8 @@ template <typename T>
 class BinaryTree; 
 
 
+// -----------------------------------------------------------------------
+
 template <typename T> 
 class BinaryTreeNode 
 {
@@ -29,6 +31,9 @@ class BinaryTreeNode
 
 friend class BinaryTree<T>; 
 }; 
+
+
+
 
 template <typename T> 
 BinaryTreeNode<T>::BinaryTreeNode()
@@ -84,6 +89,8 @@ bool BinaryTreeNode<T>::setRight(BinaryTreeNode<T> *node)
 }
 
 
+// ------------------------------------------------------
+
 template <typename T> 
 class BinaryTree 
 {
@@ -92,9 +99,11 @@ class BinaryTree
         bool insertKey(T key);
         BinaryTreeNode<T> *getRoot() const; 
         void levelOrderTraversal() const; 
+        void inorderTraversal() const; 
         int height() const; 
 
     protected:
+        void inorderTraversal(BinaryTreeNode<T> *node) const;  
         int height(BinaryTreeNode<T> *node) const; 
         BinaryTreeNode<T> *root; 
 }; 
@@ -190,6 +199,25 @@ int BinaryTree<T>::height(BinaryTreeNode<T> *node) const {
         int left_tree_height = this->height(node->getLeft()); 
         int right_tree_height = this->height(node->getRight()); 
         return 1 +  max(left_tree_height, right_tree_height); 
+    }
+}
+
+
+template <typename T> 
+void BinaryTree<T>::inorderTraversal() const {
+    if(this->root == NULL) {
+        cout << "Tree is Not Grown !!" << endl; 
+    } else {
+        return this->inorderTraversal(this->root); 
+    }
+}
+
+template <typename T> 
+void BinaryTree<T>::inorderTraversal(BinaryTreeNode<T> *node) const {
+    if(node != NULL) {
+        this->inorderTraversal(node->left); 
+        cout < node->data << ", "; 
+        this->inorderTraversal(node->right);         
     }
 }
 
