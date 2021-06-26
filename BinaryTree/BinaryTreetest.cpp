@@ -39,7 +39,16 @@ int main(int argc, char* argv[])
 
 
 
-    tree.levelOrderTraversal(); 
+    tree.levelOrderTraversal();
+    cout << endl; 
+
+    tree.inorderTraversal(); 
+    cout << endl; 
+
+
     cout << tree.height() << endl; 
+
+    cout << tree.numberOfNodes() << endl; 
+
     return 0; 
 }

@@ -101,8 +101,10 @@ class BinaryTree
         void levelOrderTraversal() const; 
         void inorderTraversal() const; 
         int height() const; 
+        int numberOfNodes() const; 
 
     protected:
+        int numberOfNodes(BinaryTreeNode<T> *node) const; 
         void inorderTraversal(BinaryTreeNode<T> *node) const;  
         int height(BinaryTreeNode<T> *node) const; 
         BinaryTreeNode<T> *root; 
@@ -216,9 +218,23 @@ template <typename T>
 void BinaryTree<T>::inorderTraversal(BinaryTreeNode<T> *node) const {
     if(node != NULL) {
         this->inorderTraversal(node->left); 
-        cout < node->data << ", "; 
+        cout << node->data << ", "; 
         this->inorderTraversal(node->right);         
     }
+}
+
+template <typename T> 
+int BinaryTree<T>::numberOfNodes(BinaryTreeNode<T> *node) const {
+    if(node == NULL) {
+        return 0; 
+    } else {
+        return 1 + this->numberOfNodes(node->left) + this->numberOfNodes(node->right); 
+    }
+}
+
+template <typename T >
+int BinaryTree<T>::numberOfNodes() const {
+    return this->numberOfNodes(this->root); 
 }
 
 #endif 
