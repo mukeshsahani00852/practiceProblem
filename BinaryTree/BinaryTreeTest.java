@@ -7,6 +7,7 @@ public class BinaryTreeTest {
         binaryTree.insertKey(10);;
         binaryTree.levelOrderTraversal();
         System.out.println(); 
+        binaryTree.inorderTraversal();
     }
 
 }

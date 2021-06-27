@@ -30,12 +30,17 @@ public class BinaryTree<T> {
         }
     }
 
-    public void inorderTraversal(BinaryTreeNode<T> node) {
+    public void inorderTraversalAux(BinaryTreeNode<T> node) {
         if(node != null) {
-            inorderTraversal(node.left);
+            inorderTraversalAux(node.left);
             System.out.print(node.getData() + ", "); 
-            inorderTraversal(node.right);
+            inorderTraversalAux(node.right);
         }
+    }
+
+
+    public void inorderTraversal() {
+        this.inorderTraversalAux(this.root);
     }
 
     public void levelOrderTraversal() {
