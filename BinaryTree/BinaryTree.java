@@ -14,7 +14,42 @@ public class BinaryTree<T> {
             queue.enQueue(this.root);
             while(!queue.isEmpty()) {
                 node = queue.deQueue(); 
+                if(node.left == null) {
+                    node.left = new BinaryTreeNode<T>(data); 
+                    break; 
+                } else {
+                    queue.enQueue(node.left);
+                }
+                if(node.right == null) {
+                    node.right = new BinaryTreeNode<T>(data); 
+                    break; 
+                } else {
+                    queue.enQueue(node.right);
+                }
+            }
+        }
+    }
 
+    public void inorderTraversal(BinaryTreeNode<T> node) {
+        if(node != null) {
+            inorderTraversal(node.left);
+            System.out.print(node.getData() + ", "); 
+            inorderTraversal(node.right);
+        }
+    }
+
+    public void levelOrderTraversal() {
+        Queue<BinaryTreeNode<T>> queue = new Queue<BinaryTreeNode<T>>(); 
+        BinaryTreeNode<T> node = null; 
+        queue.enQueue(this.root);
+        while(!queue.isEmpty()) {
+            node = queue.deQueue(); 
+            System.out.print(node.getData() + ", "); 
+            if(node.left != null) {
+                queue.enQueue(node.left);
+            } 
+            if(node.right != null) {
+                queue.enQueue(node.right);
             }
         }
     }
