@@ -32,8 +32,16 @@ class BinaryTree:
                     queue.enQueue(node.right)
 
     def inorderTraversal(self): 
-        pass 
-    
+        return self._inorderTraversal(self.root) 
+
+    def _inorderTraversal(self, node): 
+        if node is not None: 
+            self._inorderTraversal(node.left)
+            print(node.data, end = ", ")
+            self._inorderTraversal(node.right)
+        
+
+
 
 
 # -----------------------------------------
@@ -65,3 +73,8 @@ class Queue:
         return self.queue == []
 
     
+# -------------------------------------------- 
+# *Testing 
+
+if __name__ == '__main__': 
+    pass 
