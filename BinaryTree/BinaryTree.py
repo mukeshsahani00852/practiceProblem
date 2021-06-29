@@ -37,6 +37,20 @@ class BinaryTree:
             self._inorderTraversal(node.left)
             print(node.data, end = ", ")
             self._inorderTraversal(node.right)
+
+    def height(self): 
+        if self.root is None: 
+            return -1 
+        else: 
+            return self._height(self.root)
+
+    def _height(self, node): 
+        if node is None: 
+            return 0 
+        else: 
+            lh = self._height(node.left)
+            rh = self._height(node.right)
+            return max(lh, rh) + 1; 
         
 
 # -----------------------------------------
@@ -51,11 +65,4 @@ class BinaryTreeNode:
 # -------------------------------------------- 
 
 if __name__ == '__main__': 
-    tree = BinaryTree()
-    tree.insertKey(12)
-    tree.insertKey(11)
-    tree.insertKey(121)
-    tree.insertKey(111)
-    tree.insertKey(10)
-    tree.inorderTraversal() # level order traversal 
-    del tree
+    pass 

@@ -26,7 +26,7 @@ class BinarySearchTree(BinaryTree):
                 node.left = BinaryTreeNode()
                 node.left.data = ele 
             else: 
-                return self._inorderTraversal(node.left, ele)
+                return self._insertKey(node.left, ele)
 
 
 
