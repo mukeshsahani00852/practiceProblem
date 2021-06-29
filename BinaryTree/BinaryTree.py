@@ -1,6 +1,4 @@
-# filename : BinaryTree.py 
-
-
+from util import Queue 
 
 # -----------------------------------------
 class BinaryTree: 
@@ -41,9 +39,6 @@ class BinaryTree:
             self._inorderTraversal(node.right)
         
 
-
-
-
 # -----------------------------------------
 class BinaryTreeNode: 
 
@@ -52,29 +47,15 @@ class BinaryTreeNode:
         self.left = None 
         self.right = None 
 
-
-
-
-# ---------------------------------------- 
-class Queue: 
-    def __init__(self): 
-        self.queue = []
-    
-    def enQueue(self, ele): 
-        self.queue.append(ele)
-
-    def deQueue(self): 
-        if self.isEmpty(): 
-            return None 
-        else: 
-            return self.queue.pop(0)
-    
-    def isEmpty(self): 
-        return self.queue == []
-
     
 # -------------------------------------------- 
-# *Testing 
 
 if __name__ == '__main__': 
-    pass 
+    tree = BinaryTree()
+    tree.insertKey(12)
+    tree.insertKey(11)
+    tree.insertKey(121)
+    tree.insertKey(111)
+    tree.insertKey(10)
+    tree.inorderTraversal() # level order traversal 
+    del tree
