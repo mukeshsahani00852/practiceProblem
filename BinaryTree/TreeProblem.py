@@ -1,6 +1,9 @@
 # filename : TreeProblem.py 
 
 from BinarySearchTree import BinarySearchTree 
+from BinaryTree import BinaryTree 
+from util import Queue 
+import random 
 
 # ---------------------- problem : 1 ------------------------------------------
 
@@ -22,11 +25,43 @@ def minimal_height_binary_serach_tree_from_sorted_array(arr, binaryTree, start, 
  
 
 
+#--------------------------------------------------------------------------------------------------------------------
+
+
+
+# --------------------- problem : 2 -------------------------------------------- 
+"""
+    * Given an BinaryTree make a Linked of list which contain nodes of each level 
+    * if there is L level we need L linked List them. 
+"""
+
+def get_node_of_each_depth_in_linked_list(binaryTree  : BinaryTree): 
+    
+    aux_queue = Queue()
+    aux_queue.enQueue(binaryTree.root) # insert root node in Queue First. 
+    lst = []
+    lst.append([])
+    aux_queue.enQueue(None) # Here None is my delimitor. 
+    while not aux_queue.isEmpty(): 
+        node = aux_queue.deQueue()
+        if node is None: 
+            if not aux_queue.isEmpty():        
+                aux_queue.enQueue(None)
+                lst.append([])
+            continue 
+        lst[len(lst) - 1].append(node.data)
+        if node.left is not None: 
+            aux_queue.enQueue(node.left)
+        if node.right is not None: 
+            aux_queue.enQueue(node.right)
+    return lst 
 
 # -----------------------Testing------------------------------------------------
 if __name__ == '__main__':
-    data = [1, 2, 3, 4, 5, 6, 7]
-    minimal_height_binary_serach_tree_from_sorted_array( data, binaryTree, 0, len(data) - 1)
-    binaryTree.inorderTraversal()
-    print("----")
-    print(binaryTree.height())
+    binaryTree = BinaryTree()
+    for i in range(15): 
+        binaryTree.insertKey(random.randint(1, 100))
+    
+    lst = get_node_of_each_depth_in_linked_list(binaryTree)
+    print(lst)
+    binaryTree.levelOrderTraversal()

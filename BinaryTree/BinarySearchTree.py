@@ -1,5 +1,6 @@
 from BinaryTree import BinaryTree, BinaryTreeNode  
 
+
 # -----------------------------------------------------------------
 
 class BinarySearchTree(BinaryTree): 
@@ -27,6 +28,8 @@ class BinarySearchTree(BinaryTree):
                 node.left.data = ele 
             else: 
                 return self._insertKey(node.left, ele)
+
+ 
 
 
 

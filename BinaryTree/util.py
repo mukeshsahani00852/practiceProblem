@@ -39,3 +39,8 @@ class Stack:
     def isEmpty(self): 
         return self.stack == []
 
+
+#-------------------------------------------- 
+class Delimiter: 
+
+    pass 

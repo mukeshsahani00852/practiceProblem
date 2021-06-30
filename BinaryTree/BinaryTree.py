@@ -51,7 +51,29 @@ class BinaryTree:
             lh = self._height(node.left)
             rh = self._height(node.right)
             return max(lh, rh) + 1; 
-        
+
+
+    def numbef_of_node(self): 
+        pass 
+
+    def _number_of_nodes(self, node): 
+        if node is None: 
+            return 0 
+        else: 
+            return self._number_of_nodes(node.left) + self._number_of_nodes(self.right) + 1 
+
+    
+    def levelOrderTraversal(self): 
+        queue = Queue()
+        queue.enQueue(self.root)
+        while not queue.isEmpty(): 
+            node = queue.deQueue()
+            if node.left is not None: 
+                queue.enQueue(node.left)
+            if node.right is not None: 
+                queue.enQueue(node.right)
+            print(node.data, end = ", ")
+        print()
 
 # -----------------------------------------
 class BinaryTreeNode: 
