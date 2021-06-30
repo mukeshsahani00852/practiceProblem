@@ -53,8 +53,11 @@ class BinaryTree:
             return max(lh, rh) + 1; 
 
 
-    def numbef_of_node(self): 
-        pass 
+    def number_of_node(self): 
+        if self.root is None: 
+            return 0 
+        else: 
+            return self._number_of_nodes(self.root)
 
     def _number_of_nodes(self, node): 
         if node is None: 
