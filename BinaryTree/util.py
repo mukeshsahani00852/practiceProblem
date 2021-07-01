@@ -49,7 +49,32 @@ class Delimiter:
 # ----------------------------------------- 
 class LinkedList: 
 
-    pass 
+    def __init__(self): 
+        self.head = None 
+    
+    def add(self, ele): 
+        if self.head is None: 
+            self.head = LinkedListNode()
+            self.head.data = ele 
+        else: 
+            temp = self.head 
+            while temp.next is not None: 
+                temp = temp.next 
+            temp.next = LinkedListNode()
+            temp.next.data = ele 
+
+
+    def printList(self): 
+        if self.head is None: 
+            print("List is Empty!!!")
+        else: 
+            temp = self.head 
+            while temp is not None: 
+                print(temp.data, end = ", ")
+                temp = temp.next 
 
 class LinkedListNode: 
-    pass 
+    
+    def __init__(self): 
+        self.data = None 
+        self.next = None 
