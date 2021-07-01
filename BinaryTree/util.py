@@ -44,3 +44,12 @@ class Stack:
 class Delimiter: 
 
     pass 
+
+
+# ----------------------------------------- 
+class LinkedList: 
+
+    pass 
+
+class LinkedListNode: 
+    pass 
