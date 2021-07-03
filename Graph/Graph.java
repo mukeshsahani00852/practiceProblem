@@ -21,9 +21,9 @@ public class Graph {
         for(int i = 0; i < this.number_of_vertex; i++) {
             this.graph.add(new ArrayList<Integer>()); 
         }
-
+        System.out.println("-----");
+        Scanner graphInput = new Scanner(System.in); 
         for(int i = 0;i < this.number_of_edge; i++) {
-            Scanner graphInput = new Scanner(System.in); 
             int source = -1, end = -1; 
             source = graphInput.nextInt(); 
             end = graphInput.nextInt(); 
@@ -31,8 +31,8 @@ public class Graph {
             if(!isDirected) {
                 graph.get(end - 1).add(source - 1); 
             }
-            graphInput.close(); 
         }
+        graphInput.close(); 
     }
 
 
@@ -40,7 +40,7 @@ public class Graph {
     public void printGraph() {
         for(int i  = 0; i < this.number_of_vertex; i++) {
             for(int vertex : this.graph.get(i)) {
-                System.out.print(vertex + ", "); 
+                System.out.print(vertex + 1 + ", "); 
             }
             System.out.println(); 
         }
