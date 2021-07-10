@@ -3,9 +3,12 @@ import java.util.ArrayList;
 public class PriorityQueue<T,Q> {
     private ArrayList<PriorityQueueNode<T,Q>> priorityQueue; 
     private int count = 0; 
+
     public PriorityQueue() {
         this.priorityQueue = new ArrayList<PriorityQueueNode<T,Q>>(); 
     }
+
+    // -----------------------private methods.--------------------------------------
 
     private int leftChild(int parent) {
         int left_child = 2*parent + 1; 
@@ -16,8 +19,6 @@ public class PriorityQueue<T,Q> {
             return left_child; 
         }
     }
-
-    
 
     private int rightChild(int parent) {
         int right_child = 2 * parent + 2; 
