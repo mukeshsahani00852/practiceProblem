@@ -17,13 +17,11 @@ class MyQueue:
             return None 
         else: 
             aux_stack = Stack()
-            while self.main_stack.isEmpty(): 
+            while not self.main_stack.isEmpty(): 
                 aux_stack.push(self.main_stack.pop())
             data = aux_stack.pop()
-
-            while aux_stack.isEmpty(): 
+            while not aux_stack.isEmpty(): 
                 self.main_stack.push(aux_stack.pop()) 
-
         return data 
     
     def isEmpty(self): 
