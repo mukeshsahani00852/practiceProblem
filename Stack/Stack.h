@@ -6,6 +6,11 @@
 
 using namespace std; 
 
+
+
+/**
+    Node -> store requred data of Node.
+*/
 template <typename T> 
 class Node 
 {
@@ -63,7 +68,7 @@ Node<T>* Node<T>::getNext() const
 template <typename T> 
 class Stack 
 {
-    public:
+    public:msco18333@gmail.com
         Stack();
         bool push(T element);
         T pop();
