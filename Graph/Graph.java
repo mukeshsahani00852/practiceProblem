@@ -3,6 +3,10 @@
 import java.util.ArrayList; 
 import java.util.Scanner; 
 
+
+
+
+
 public class Graph {
 
     
@@ -36,15 +40,7 @@ public class Graph {
     }
 
 
-    // -------------------------- print Graph data. 
-    public void printGraph() {
-        for(int i  = 0; i < this.number_of_vertex; i++) {
-            for(int vertex : this.graph.get(i)) {
-                System.out.print(vertex + 1 + ", "); 
-            }
-            System.out.println(); 
-        }
-    }
+
 
 }
 
