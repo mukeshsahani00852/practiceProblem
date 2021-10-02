@@ -1,9 +1,4 @@
 
-/**
- * 
- * All Problem related to Array and Strings.
- * 
- */
 
 import java.util.Scanner;
 import java.net.InetSocketAddress;
@@ -11,10 +6,7 @@ import java.util.Arrays;
 
 class ArrayStringProblem {
 
-    /**
-     * 
-     * problem 1 : is all the character in the string is unique. 
-     */
+
 
     public static boolean isUnique(String str) {
         boolean[] charSet = new boolean[128];
@@ -34,12 +26,6 @@ class ArrayStringProblem {
 
 
 
-    /**
-     * 
-     * problem 2 : check permutation ; check wheter string 2 is a permutation of string1.
-     * 
-     */
-
     public static String sort(String str) {
         char[] arr = str.toCharArray();
         Arrays.sort(arr);
@@ -54,10 +40,6 @@ class ArrayStringProblem {
         
         return sort(str1).equals(sort(str2)); 
     }
-    
-    /**
-     * version 2 : check whether both string have same character count. 
-     */
 
     public static boolean permutationVersion2(String str1, String str2)
     {
@@ -82,11 +64,6 @@ class ArrayStringProblem {
         return true; 
     }
 
-    /**
-     * 
-     * problem 3 : replace space. 
-     * 
-     */
 
     public static void replaceSplace(char[] str, int trueLength)
     {
@@ -116,10 +93,7 @@ class ArrayStringProblem {
         }
     }
 
-    /**
-     * problem 4 : OneEditAway.
-     * one replace, one Remove, one Insert. 
-     */
+ 
 
     public static boolean oneEditAway(String str1, String str2) {
         if (str1.length() == str2.length()) {
